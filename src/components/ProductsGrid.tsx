@@ -5,7 +5,9 @@ import Link from 'next/link'
 export default async function ProductsGrid() {
   await new Promise((resolve) => setTimeout(resolve, 3000))
 
-  const products = await fetch('https://fakestoreapi.com/products').then((res) => res.json())
+  const products = await fetch('https://fakestoreapi.com/products').then(
+    (res) => res.json(),
+  )
 
   return (
     <>
