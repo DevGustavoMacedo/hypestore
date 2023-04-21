@@ -4,9 +4,9 @@ import Image from 'next/image'
 export default async function ProductCard({ id }: { id: number }) {
   await new Promise((resolve) => setTimeout(resolve, 3000))
 
-  const product: TProduct = await fetch(`https://fakestoreapi.com/products/${id}`).then((res) =>
-    res.json()
-  )
+  const product: TProduct = await fetch(
+    `https://fakestoreapi.com/products/${id}`,
+  ).then((res) => res.json())
 
   const stars = []
 
@@ -15,7 +15,7 @@ export default async function ProductCard({ id }: { id: number }) {
   }
 
   return (
-    <div className="mx-auto w-[90%] rounded-md p-2 bg-brand-purple">
+    <div className="mx-auto w-4/5 rounded-xl rounded-s-none p-2 bg-brand-purple">
       <Image
         src={product.image}
         height={600}
@@ -25,15 +25,18 @@ export default async function ProductCard({ id }: { id: number }) {
         className="rounded h-auto w-full object-cover"
       />
       <div className="flex flex-col p-4 gap-4 text-gray-200 bg-brand-black font-text">
-        <h3 className="font-title text-lg text-brand-purple">{product.title}</h3>
+        <h3 className="font-title text-lg text-brand-purple">
+          {product.title}
+        </h3>
         <p className="border-brand-purple border-2 text-sm rounded border-dashed py-2 px-3 text-justify h-28 overflow-x-auto">
           {product.description}
         </p>
         <p className="text-xs">Category: {product.category}</p>
         <p className="flex justify-between items-center">
           <span className="flex">
-            {stars.map((_) => (
+            {stars.map((_, index) => (
               <Image
+                key={index}
                 width={40}
                 height={40}
                 alt=""
@@ -43,7 +46,9 @@ export default async function ProductCard({ id }: { id: number }) {
             ))}
             <span className="text-xs">{product.rating.count}</span>
           </span>
-          <span className="text-brand-purple font-title text-2xl">U$ {product.price}</span>
+          <span className="text-brand-purple font-title text-2xl">
+            U$ {product.price}
+          </span>
         </p>
       </div>
     </div>
