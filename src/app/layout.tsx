@@ -2,7 +2,10 @@ import '@/app/globals.css'
 
 import { ReactNode } from 'react'
 
-import { Josefin_Sans as josefinSans, Changa_One as changaOne } from 'next/font/google'
+import {
+  Josefin_Sans as josefinSans,
+  Changa_One as changaOne,
+} from 'next/font/google'
 
 const josefin = josefinSans({
   variable: '--font-josefin',
@@ -31,7 +34,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${josefin.variable} ${changa.variable} scroll-smooth selection:bg-brand-black selection:text-brand-purple`} >
+      <body
+        className={`${josefin.variable} ${changa.variable} scroll-smooth selection:bg-brand-black selection:text-brand-purple bg-brand-black`}
+      >
         {children}
       </body>
     </html>
