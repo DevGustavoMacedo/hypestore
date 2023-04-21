@@ -11,7 +11,7 @@ export default function Title() {
           waitUntilVisible: true,
         }}
         getBeforeInit={(instance) => {
-          instance.type('Hype $').pause(500).delete(1).pause(500).type('Store')
+          instance.type('Hype $').pause(300).delete(1).pause(300).type('Store')
 
           return instance
         }}
