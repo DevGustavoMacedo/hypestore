@@ -14,7 +14,6 @@ module.exports = {
         brand: {
           purple: '#a755ff',
           black: '#202124',
-          pink: '#d77ab1',
         },
       },
       fontFamily: {
