@@ -21,8 +21,10 @@ const createFormSchema = z
       .max(50, 'Maximum: 50 letters')
       .refine(
         (email) =>
-          ['@gmail.com', '@hotmail.com', '@outlook.com'].some((element) => email.endsWith(element)),
-        'Only gmail, outlook or hotmail'
+          ['@gmail.com', '@hotmail.com', '@outlook.com'].some((element) =>
+            email.endsWith(element),
+          ),
+        'Only gmail, outlook or hotmail',
       ),
     emailConfirm: z
       .string()
@@ -31,8 +33,10 @@ const createFormSchema = z
       .max(50, 'Maximum: 50 letters')
       .refine(
         (email) =>
-          ['@gmail.com', '@hotmail.com', '@outlook.com'].some((element) => email.endsWith(element)),
-        'Only gmail, outlook or hotmail'
+          ['@gmail.com', '@hotmail.com', '@outlook.com'].some((element) =>
+            email.endsWith(element),
+          ),
+        'Only gmail, outlook or hotmail',
       ),
     complaints: z
       .array(
@@ -45,7 +49,7 @@ const createFormSchema = z
             .nonempty('Required field')
             .min(10, 'Minimum: 10 letters')
             .max(100, 'Maximum: 100 letters'),
-        })
+        }),
       )
       .min(1, 'Send at least one')
       .max(5, 'The maximum is 5'),
