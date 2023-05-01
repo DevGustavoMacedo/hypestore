@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${josefin.variable} ${changa.variable} scroll-smooth selection:bg-brand-black selection:text-brand-purple bg-brand-black`}
+        className={`${josefin.variable} ${changa.variable} scroll-smooth dark:selection:bg-brand-black selection:bg-brand-white selection:text-brand-purple bg-brand-white dark:bg-brand-black`}
       >
         {children}
       </body>
