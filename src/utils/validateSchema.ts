@@ -47,8 +47,9 @@ const createFormSchema = z
           description: z
             .string()
             .nonempty('Required field')
-            .min(10, 'Minimum: 10 letters')
-            .max(100, 'Maximum: 100 letters'),
+            .min(20, 'Minimum: 20 letters')
+            .max(200, 'Maximum: 200 letters')
+            .transform((text) => text.toLocaleLowerCase()),
         }),
       )
       .min(1, 'Send at least one')
