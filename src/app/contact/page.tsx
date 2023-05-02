@@ -4,7 +4,7 @@ import { useFieldArray, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import TFormSchema from '@/types/TFormSchema'
 
@@ -39,6 +39,10 @@ export default function Contact() {
       },
     ],
   })
+
+  useEffect(() => {
+    document.body.classList.remove('overflow-hidden')
+  }, [])
 
   const { push } = useRouter()
 
@@ -79,80 +83,102 @@ export default function Contact() {
   return (
     <>
       <Modal isFormData={isFormData} />
-      <section className="dark:bg-brand-black bg-brand-white flex flex-col w-[90%] mx-auto">
-        <div className="flex items-center justify-around">
+      <section className="dark:bg-brand-black bg-brand-white flex flex-col items-center">
+        <div className="flex items-center justify-around w-[90%]">
           <GoBack />
-          <h2 className="font-title text-brand-purple text-xl uppercase py-5">
+          <h2
+            className="font-title text-brand-purple text-xl uppercase py-5
+          md:text-2xl lg:text-3xl lg:py-7"
+          >
             Contact Us
           </h2>
           <div></div>
         </div>
         <form
           onSubmit={handleSubmit(createComplaint)}
-          className="flex flex-col gap-4 text-brand-purple items-center font-text [input:bg-brand-white] dark:[input:bg-brand-black]"
+          className="flex flex-col gap-4 text-brand-purple items-center font-text [input:bg-brand-white] dark:[input:bg-brand-black] w-[90%] max-w-3xl"
         >
           <div className="flex flex-col w-full">
-            <label htmlFor="name" className="font-title text-sm">
+            <label
+              htmlFor="name"
+              className="font-title text-sm
+            lg:text-lg"
+            >
               NAME
             </label>
             <input
               type="text"
               {...register('name')}
-              className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white"
+              className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white
+              lg:h-16 lg:p-4 lg:text-lg"
             />
             {formErrors.name && (
-              <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded">
+              <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded lg:text-lg lg:mt-2">
                 {formErrors.name.message}
               </span>
             )}
           </div>
 
           <div className="flex flex-col w-full">
-            <label htmlFor="email" className="font-title text-sm">
+            <label
+              htmlFor="email"
+              className="font-title text-sm
+            lg:text-lg"
+            >
               EMAIL
             </label>
             <input
               type="email"
               {...register('email')}
-              className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white"
+              className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white
+              lg:h-16 lg:p-4 lg:text-lg"
             />
             {formErrors.email && (
-              <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded">
+              <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded lg:text-lg lg:mt-2">
                 {formErrors.email.message}
               </span>
             )}
           </div>
 
           <div className="flex flex-col w-full">
-            <label htmlFor="emailConfirm" className="font-title text-sm">
+            <label
+              htmlFor="emailConfirm"
+              className="font-title text-sm
+            lg:text-lg"
+            >
               EMAIL CONFIRM
             </label>
             <input
               type="email"
               {...register('emailConfirm')}
-              className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white"
+              className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white
+              lg:h-16 lg:p-4 lg:text-lg"
             />
             {formErrors.emailConfirm && (
-              <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded">
+              <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded lg:text-lg lg:mt-2">
                 {formErrors.emailConfirm.message}
               </span>
             )}
           </div>
 
           <div className="flex justify-between w-full mt-4">
-            <label className="font-title text-sm uppercase">
+            <label
+              className="font-title text-sm
+            lg:text-lg uppercase"
+            >
               Suggestions / Complaints
             </label>
             <button
               type="button"
               onClick={addNewTech}
-              className="self-end bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-sm dark:hover:bg-brand-black hover:bg-brand-white hover:text-brand-purple"
+              className="self-end bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-sm dark:hover:bg-brand-black hover:bg-brand-white hover:text-brand-purple
+              lg:text-lg"
             >
               ADD
             </button>
           </div>
           {formErrors.complaints && (
-            <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded">
+            <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded lg:text-lg lg:mt-2">
               {formErrors.complaints.message}
             </span>
           )}
@@ -160,12 +186,15 @@ export default function Contact() {
           {fields.map((field, index) => (
             <div key={field.id} className="flex flex-col w-full gap-4">
               <div className="flex flex-col">
-                <label htmlFor="category">Category</label>
+                <label htmlFor="category" className="lg:text-lg">
+                  Category
+                </label>
 
                 <select
                   defaultValue=""
                   {...register(`complaints.${index}.category`)}
-                  className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white"
+                  className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white
+                  lg:h-16 lg:p-4 lg:text-lg"
                 >
                   <option
                     className="bg-brand-purple dark:text-brand-black text-brand-white"
@@ -174,7 +203,7 @@ export default function Contact() {
                     Select an option
                   </option>
                   <option
-                    className="bg-brand-purple dark:text-brand-black text-brand-white"
+                    className="bg-brand-purple dark:text-brand-black text-brand-white w-1/2"
                     value="Suggestion"
                   >
                     Suggestions
@@ -187,21 +216,24 @@ export default function Contact() {
                   </option>
                 </select>
                 {formErrors.complaints?.[index]?.category && (
-                  <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded">
+                  <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded lg:text-lg lg:mt-2">
                     {formErrors.complaints?.[index]?.category?.message}
                   </span>
                 )}
               </div>
 
               <div className="flex flex-col">
-                <label htmlFor="description">Message: </label>
+                <label htmlFor="description" className="lg:text-lg">
+                  Message:{' '}
+                </label>
 
                 <textarea
                   {...register(`complaints.${index}.description`)}
-                  className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white"
+                  className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white overflow-y-scroll
+                  lg:h-36 lg:p-4 lg:text-xl"
                 />
                 {formErrors.complaints?.[index]?.description && (
-                  <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded">
+                  <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded lg:text-lg lg:mt-2">
                     {formErrors.complaints?.[index]?.description?.message}
                   </span>
                 )}
@@ -209,7 +241,8 @@ export default function Contact() {
 
               <button
                 onClick={() => delNewTech(index)}
-                className="self-end bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-sm dark:hover:bg-brand-black hover:bg-brand-white hover:text-brand-purple"
+                className="self-end bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-sm dark:hover:bg-brand-black hover:bg-brand-white hover:text-brand-purple
+                lg:text-lg"
               >
                 DEL
               </button>
@@ -219,7 +252,7 @@ export default function Contact() {
           <button
             type="submit"
             id="btnSubmit"
-            className="bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-lg"
+            className="bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-lg lg:text-xl"
           >
             SEND
           </button>
