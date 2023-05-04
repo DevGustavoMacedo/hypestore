@@ -33,7 +33,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className='dark'>
       <body
         className={`${josefin.variable} ${changa.variable} scroll-smooth dark:selection:bg-brand-black selection:bg-brand-white selection:text-brand-purple bg-brand-white dark:bg-brand-black`}
       >

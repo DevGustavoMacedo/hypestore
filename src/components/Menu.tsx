@@ -21,13 +21,14 @@ export default function Menu() {
       {categories.map((item) => (
         <li
           key={item.label}
-          className="py-5 w-full border-brand-purple border-y  first:border-t-2 last:border-b-2 font-primary hover:bg-brand-purple hover:text-brand-white dark:hover:text-brand-black text-center
-          lg:py-7"
+          className="w-full border-brand-purple border-y first:border-t-2 last:border-b-2 hover:bg-brand-purple
+          "
         >
           <Link
             href={item.href}
-            className="font-text text-base text-brand-purple hover:text-brand-white dark:hover:text-brand-black hover:font-bold uppercase
-            lg:text-xl"
+            className="font-text text-base text-brand-purple inline-block w-full font-primary hover:font-bold uppercase
+            hover:text-brand-white dark:hover:text-brand-black text-center py-5
+            lg:text-xl lg:py-7"
           >
             {item.label}
           </Link>

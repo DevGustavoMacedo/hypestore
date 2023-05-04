@@ -20,13 +20,19 @@ const ThemeContext = createContext<Props>({
 })
 
 export function useTheme() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'dark')
+  const [theme, setTheme] = useState('')
+
+  useEffect(() => {
+    setTheme(localStorage.getItem('theme') ?? 'light')  
+  }, [])
 
   useEffect(() => {
     const root = document.documentElement
 
-    root.classList.remove(theme === 'dark' ? 'light' : 'dark')
-    root.classList.add(theme)
+    if(theme) {
+      root.classList.remove(theme === 'dark' ? 'light' : 'dark')
+      root.classList.add(theme)
+    }
 
     localStorage.setItem('theme', theme)
   }, [theme])

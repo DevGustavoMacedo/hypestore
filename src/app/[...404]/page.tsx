@@ -15,6 +15,7 @@ export default function Custom404() {
         width={490}
         height={476}
         className="absolute bottom-0"
+        priority={true}
       />
     </div>
   )
