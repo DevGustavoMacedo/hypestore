@@ -1,9 +1,20 @@
 import Link from 'next/link'
+import MenuButton from './MenuButton'
+import ThemeButton from './ThemeButton'
+import Menu from './Menu'
 
 export default function Header() {
   return (
-    <div className="text-center text-brand-black py-2 text-xl font-title bg-brand-purple">
-      <Link href={'/'}>Hype Store</Link>
-    </div>
+    <>
+      <Menu />
+      <div
+        className="flex items-center justify-between text-brand-white dark:text-brand-black py-2 px-4 text-xl font-title bg-brand-purple
+      md:text-2xl lg:text-3xl"
+      >
+        <ThemeButton />
+        <Link href={'/'}>Hype Store</Link>
+        <MenuButton />
+      </div>
+    </>
   )
 }

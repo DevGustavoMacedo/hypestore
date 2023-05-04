@@ -13,7 +13,8 @@ export default function GoBack() {
       height={50}
       alt="Go back"
       src="/back.svg"
-      className="w-6 h-auto"
+      className="w-7 h-auto
+      md:w-8 lg:w-10"
     />
   )
 }

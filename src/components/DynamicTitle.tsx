@@ -2,9 +2,12 @@
 
 import TypeIt from 'typeit-react'
 
-export default function Title() {
+export default function DynamicTitle() {
   return (
-    <h1 className="font-title text-brand-purple text-5xl bg-brand-black w-fit px-4 py-2 bg-opacity-80 rounded-md">
+    <h1
+      className="font-title text-brand-purple text-5xl bg-brand-black w-fit px-4 py-2 bg-opacity-80 rounded-md
+    md:text-7xl"
+    >
       <TypeIt
         options={{
           speed: 300,
