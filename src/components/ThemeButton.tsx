@@ -17,7 +17,7 @@ export default function ThemeButton() {
       width={50}
       height={50}
       onClick={handleTheme}
-      className="w-6 h-auto lg:w-8"
+      className="w-6 h-auto cursor-pointer lg:w-8"
     />
   )
 }
