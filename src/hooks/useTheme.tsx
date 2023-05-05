@@ -23,7 +23,7 @@ export function useTheme() {
   const [theme, setTheme] = useState('')
 
   useEffect(() => {
-    setTheme(localStorage.getItem('theme') ?? 'light')
+    setTheme(localStorage.getItem('theme') ?? 'dark')
   }, [])
 
   useEffect(() => {
