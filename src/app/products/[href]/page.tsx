@@ -4,9 +4,10 @@ import ProductsGrid from '@/components/ProductsGrid'
 export async function generateStaticParams() {
   const categories = await fetch('https://fakestoreapi.com/products/categories')
     .then((res) => res.json())
-    .then((data) => data.map((item: string) => ({ href: item })))
-
-  categories.push({ href: 'all' })
+    .then((data) => {
+      data.push('all')
+      return data.map((item: string) => ({ href: item }))
+    })
 
   return categories
 }
@@ -26,7 +27,7 @@ export default function Products({ params }: Props) {
           className="font-title text-brand-purple text-xl uppercase bg-brand-white dark:bg-brand-black py-5
         md:text-2xl lg:text-3xl lg:py-7"
         >
-          {params.href.replace('-', ' ')}
+          {JSON.stringify(params)}
         </h2>
         <div></div>
       </div>
