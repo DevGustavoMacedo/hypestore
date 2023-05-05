@@ -27,7 +27,7 @@ export default function Products({ params }: Props) {
           className="font-title text-brand-purple text-xl uppercase bg-brand-white dark:bg-brand-black py-5
         md:text-2xl lg:text-3xl lg:py-7"
         >
-          {JSON.stringify(params)}
+          {params.href}
         </h2>
         <div></div>
       </div>
