@@ -1,6 +1,30 @@
 'use client'
 
-export default function MenuButton() {
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+
+import { useTheme } from '@/hooks/useTheme'
+
+export function ThemeButton() {
+  const { theme, setTheme } = useTheme()
+
+  const handleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
+  return (
+    <Image
+      src={theme === 'light' ? '/off.svg' : '/on.svg'}
+      alt="Change Theme"
+      width={50}
+      height={50}
+      onClick={handleTheme}
+      className="w-6 h-auto cursor-pointer lg:w-8"
+    />
+  )
+}
+
+export function MenuButton() {
   const toggleMenu = () => {
     const menu = document.getElementById('menu')
     const btnMenu = document.getElementById('btnMenu')
@@ -32,5 +56,21 @@ export default function MenuButton() {
       "
       />
     </div>
+  )
+}
+
+export function GoBackButton() {
+  const { back } = useRouter()
+
+  return (
+    <Image
+      onClick={() => back()}
+      width={50}
+      height={50}
+      alt="Go back"
+      src="/back.svg"
+      className="w-7 h-auto cursor-pointer
+      md:w-8 lg:w-10"
+    />
   )
 }
