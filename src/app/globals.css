@@ -4,8 +4,23 @@
 
 @layer utilities {
   .toggle-btn {
-      @apply 
-      [&>button::before]:-translate-y-[6px] [&>button::before]:rotate-45 
-      [&>button::after]:-translate-y-[6px] [&>button::after]:-rotate-45
+    @apply [&>button::before]:-translate-y-[6px] [&>button::before]:rotate-45 
+      [&>button::after]:-translate-y-[6px] [&>button::after]:-rotate-45;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2 h-full
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-brand-white
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-brand-black
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-brand-purple
   }
 }
