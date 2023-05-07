@@ -62,10 +62,10 @@ export function SkeletonOneProduct() {
         >
           <div className="w-full animate-pulse space-x-1 rounded-xl bg-brand-purple rounded-s-none p-4 lg:p-8">
             <div className="flex flex-col gap-4 lg:flex-row lg:gap-8">
-              <div className="h-80 w-full rounded-md bg-purple-300 lg:w-1/2" />
+              <div className="h-80 w-full rounded-md bg-purple-300 lg:w-1/2 lg:h-96" />
               <div className="flex flex-col gap-4 w-full">
                 <div className="h-10 w-full rounded-md bg-purple-300 lg:h-16" />
-                <div className="h-20 w-full rounded-md bg-purple-300 lg:h-32" />
+                <div className="h-20 w-full rounded-md bg-purple-300 lg:h-48" />
                 <div className="h-5 rounded-md bg-purple-300 w-1/2 lg:h-10" />
                 <div className="flex w-full gap-4 justify-between">
                   <div className="h-8 w-1/5 rounded-md bg-purple-300 lg:h-16 lg:w-2/5" />

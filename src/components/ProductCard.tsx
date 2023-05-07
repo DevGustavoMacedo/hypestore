@@ -41,7 +41,7 @@ export default async function ProductCard({ id }: { id: number }) {
         </h3>
         <p
           className="border-brand-purple border-2 text-sm rounded border-dashed py-2 px-3 text-justify h-28 overflow-x-auto
-        sm:text-base lg:text-xl lg:p-4 lg:h-36
+        sm:text-base lg:text-xl lg:p-4 lg:h-48
         "
         >
           {product.description}
