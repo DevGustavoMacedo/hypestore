@@ -16,6 +16,7 @@ const createFormSchema = z
       }),
     email: z
       .string()
+      .nonempty('Required field')
       .email('Invalid email')
       .min(10, 'Minimum: 10 letters')
       .max(50, 'Maximum: 50 letters')
@@ -28,6 +29,7 @@ const createFormSchema = z
       ),
     emailConfirm: z
       .string()
+      .nonempty('Required field')
       .email('Invalid email')
       .min(10, 'Minimum: 10 letters')
       .max(50, 'Maximum: 50 letters')
