@@ -1,4 +1,4 @@
-import GoBack from '@/components/GoBack'
+import { GoBackButton } from '@/components/Buttons'
 import ProductCard from '@/components/ProductCard'
 import TProduct from '@/types/TProduct'
 
@@ -22,7 +22,7 @@ export default function Product({ params }: Props) {
   return (
     <section className="dark:bg-brand-black bg-brand-white">
       <div className="flex items-center justify-around">
-        <GoBack />
+        <GoBackButton />
         <h2
           className="font-title text-brand-purple text-xl uppercase dark:bg-brand-black bg-brand-white py-5
         md:text-2xl lg:text-3xl lg:py-7"

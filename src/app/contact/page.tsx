@@ -10,8 +10,8 @@ import TFormSchema from '@/types/TFormSchema'
 
 import createFormSchema from '@/utils/validateSchema'
 
-import GoBack from '@/components/GoBack'
 import Modal from '@/components/Modal'
+import { GoBackButton } from '@/components/Buttons'
 
 export default function Contact() {
   const {
@@ -85,7 +85,7 @@ export default function Contact() {
       <Modal isFormData={isFormData} />
       <section className="dark:bg-brand-black bg-brand-white flex flex-col items-center">
         <div className="flex items-center justify-around w-[90%]">
-          <GoBack />
+          <GoBackButton />
           <h2
             className="font-title text-brand-purple text-xl uppercase py-5
           md:text-2xl lg:text-3xl lg:py-7"
@@ -109,7 +109,7 @@ export default function Contact() {
             <input
               type="text"
               {...register('name')}
-              className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white
+              className="bg-brand-purple bg-opacity-20 p-2 rounded text-brand-black dark:text-brand-white
               lg:h-16 lg:p-4 lg:text-lg"
             />
             {formErrors.name && (
@@ -130,7 +130,7 @@ export default function Contact() {
             <input
               type="email"
               {...register('email')}
-              className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white
+              className="bg-brand-purple bg-opacity-20 p-2 rounded text-brand-black dark:text-brand-white
               lg:h-16 lg:p-4 lg:text-lg"
             />
             {formErrors.email && (
@@ -151,7 +151,7 @@ export default function Contact() {
             <input
               type="email"
               {...register('emailConfirm')}
-              className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white
+              className="bg-brand-purple bg-opacity-20 p-2 rounded text-brand-black dark:text-brand-white
               lg:h-16 lg:p-4 lg:text-lg"
             />
             {formErrors.emailConfirm && (
@@ -171,7 +171,7 @@ export default function Contact() {
             <button
               type="button"
               onClick={addNewTech}
-              className="self-end bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-sm dark:hover:bg-brand-black hover:bg-brand-white hover:text-brand-purple
+              className="self-end bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-sm hover:bg-opacity-50 transition-all
               lg:text-lg"
             >
               ADD
@@ -193,27 +193,12 @@ export default function Contact() {
                 <select
                   defaultValue=""
                   {...register(`complaints.${index}.category`)}
-                  className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white
-                  lg:h-16 lg:p-4 lg:text-lg"
+                  className="bg-brand-purple bg-opacity-20 p-2 rounded text-brand-black dark:text-brand-white
+                  lg:h-16 lg:p-4 lg:text-lg dark:focus:bg-[#3b2b50] focus:bg-[#d6bef1]"
                 >
-                  <option
-                    className="bg-brand-purple dark:text-brand-black text-brand-white"
-                    value=""
-                  >
-                    Select an option
-                  </option>
-                  <option
-                    className="bg-brand-purple dark:text-brand-black text-brand-white w-1/2"
-                    value="Suggestion"
-                  >
-                    Suggestions
-                  </option>
-                  <option
-                    className="bg-brand-purple dark:text-brand-black text-brand-white"
-                    value="Complaint"
-                  >
-                    Complaints
-                  </option>
+                  <option value="">Select an option</option>
+                  <option value="Suggestion">Suggestions</option>
+                  <option value="Complaint">Complaints</option>
                 </select>
                 {formErrors.complaints?.[index]?.category && (
                   <span className="bg-red-500 bg-opacity-40 text-red-950 mt-1 text-sm w-fit px-2 rounded lg:text-lg lg:mt-2">
@@ -229,7 +214,7 @@ export default function Contact() {
 
                 <textarea
                   {...register(`complaints.${index}.description`)}
-                  className="bg-brand-purple bg-opacity-10 p-2 rounded text-brand-black dark:text-brand-white overflow-y-scroll
+                  className="bg-brand-purple bg-opacity-20 p-2 rounded text-brand-black dark:text-brand-white overflow-y-scroll
                   lg:h-36 lg:p-4 lg:text-xl"
                 />
                 {formErrors.complaints?.[index]?.description && (
@@ -241,7 +226,7 @@ export default function Contact() {
 
               <button
                 onClick={() => delNewTech(index)}
-                className="self-end bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-sm dark:hover:bg-brand-black hover:bg-brand-white hover:text-brand-purple
+                className="self-end bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-sm hover:bg-opacity-50 transition-all
                 lg:text-lg"
               >
                 DEL
@@ -252,7 +237,7 @@ export default function Contact() {
           <button
             type="submit"
             id="btnSubmit"
-            className="bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-lg lg:text-xl"
+            className="bg-brand-purple text-brand-white dark:text-brand-black p-2 pb-1 rounded-md text-lg hover:bg-opacity-50 transition-all lg:text-xl"
           >
             SEND
           </button>

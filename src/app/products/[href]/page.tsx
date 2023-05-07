@@ -1,4 +1,4 @@
-import GoBack from '@/components/GoBack'
+import { GoBackButton } from '@/components/Buttons'
 import ProductsGrid from '@/components/ProductsGrid'
 
 export async function generateStaticParams() {
@@ -22,12 +22,12 @@ export default function Products({ params }: Props) {
   return (
     <section className="bg-brand-white dark:bg-brand-black">
       <div className="flex items-center justify-around">
-        <GoBack />
+        <GoBackButton />
         <h2
           className="font-title text-brand-purple text-xl uppercase bg-brand-white dark:bg-brand-black py-5
         md:text-2xl lg:text-3xl lg:py-7"
         >
-          {params.href}
+          {params.href === 'all' ? 'all products' : params.href}
         </h2>
         <div></div>
       </div>
