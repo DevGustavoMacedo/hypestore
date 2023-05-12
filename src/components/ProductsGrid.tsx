@@ -3,8 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function ProductsGrid({ href }: { href: string }) {
-  await new Promise((resolve) => setTimeout(resolve, 3000))
-
   const products = await fetch('https://fakestoreapi.com/products')
     .then((res) => res.json())
     .then((data: TProduct[]) => {

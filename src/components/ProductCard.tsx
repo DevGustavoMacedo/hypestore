@@ -2,8 +2,6 @@ import TProduct from '@/types/TProduct'
 import Image from 'next/image'
 
 export default async function ProductCard({ id }: { id: number }) {
-  await new Promise((resolve) => setTimeout(resolve, 3000))
-
   const product: TProduct = await fetch(
     `https://fakestoreapi.com/products/${id}`,
   ).then((res) => res.json())
