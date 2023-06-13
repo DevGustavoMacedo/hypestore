@@ -27,7 +27,7 @@ export const metadata = {
   icons: '/favicon.svg',
   openGraph: {
     images:
-      'https://raw.githubusercontent.com/DevGustavoMacedo/devgustavomacedo/main/public/dunder-mifflin.webp',
+      'https://raw.githubusercontent.com/DevGustavoMacedo/devgustavomacedo/main/public/hype-store.webp',
   },
 }
 
