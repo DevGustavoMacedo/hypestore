@@ -23,20 +23,17 @@ export function useTheme() {
   const [theme, setTheme] = useState('')
 
   useEffect(() => {
-    setTheme(localStorage.getItem('theme') ?? 'dark')
+    setTheme(localStorage.getItem('theme') || 'dark')
   }, [])
-
+  
   useEffect(() => {
-    const root = document.documentElement
-
     if (theme) {
-      root.classList.remove(theme === 'dark' ? 'light' : 'dark')
-      root.classList.add(theme)
+      document.documentElement.classList.value = theme;
+      localStorage.setItem('theme', theme);
     }
-
-    localStorage.setItem('theme', theme)
-  }, [theme])
-
+  }, [theme]);
+  
+  
   return { theme, setTheme }
 }
 
