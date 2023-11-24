@@ -43,7 +43,7 @@ export default async function ProductsGrid({ href }: { href: string }) {
               >
                 {product.title}
               </h3>
-              <Link href={`products/${href}/${product.id}`} passHref>
+              <Link href={`${href}/${product.id}`} passHref>
                 <Image
                   src={'/buy.svg'}
                   alt="More info"

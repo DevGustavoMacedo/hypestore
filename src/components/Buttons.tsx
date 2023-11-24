@@ -1,13 +1,16 @@
-'use client'
-
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 
-import { useTheme } from '@/hooks/useTheme'
+type PropsMenuButton = {
+  isMenu: boolean,
+  handleMenu: () => void
+}
 
-export function ThemeButton() {
-  const { theme, setTheme } = useTheme()
+type PropsThemeButton = {
+  theme: string,
+  setTheme: (theme: string) => void
+}
 
+export function ThemeButton({ theme, setTheme}: PropsThemeButton) {
   const handleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
@@ -24,28 +27,13 @@ export function ThemeButton() {
   )
 }
 
-export function MenuButton() {
-  const toggleMenu = () => {
-    const menu = document.getElementById('menu')
-    const btnMenu = document.getElementById('btnMenu')
-
-    if (menu && btnMenu) {
-      menu.classList.toggle('opacity-0')
-      menu.classList.toggle('pointer-events-none')
-      menu.classList.toggle('animate-open-menu')
-
-      btnMenu.classList.toggle('toggle-btn')
-
-      document.body.classList.toggle('overflow-hidden')
-    }
-  }
+export function MenuButton({ isMenu, handleMenu }: PropsMenuButton) {
 
   return (
     <div
-      id="btnMenu"
-      onClick={toggleMenu}
-      className="relative h-8 w-8 z-30 cursor-pointer rounded bg-brand-purple
-      md:h-10 md:w-10 lg:h-12 lg:w-12"
+      onClick={handleMenu}
+      className={`h-8 w-8 z-30 cursor-pointer rounded bg-brand-purple
+      md:h-10 md:w-10 lg:h-12 lg:w-12 ${isMenu && "toggle-btn"}`}
     >
       <button
         className="
@@ -56,21 +44,5 @@ export function MenuButton() {
       "
       />
     </div>
-  )
-}
-
-export function GoBackButton() {
-  const { back } = useRouter()
-
-  return (
-    <Image
-      onClick={() => back()}
-      width={50}
-      height={50}
-      alt="Go back"
-      src="/back.svg"
-      className="w-7 h-auto cursor-pointer
-      md:w-8 lg:w-10"
-    />
   )
 }
