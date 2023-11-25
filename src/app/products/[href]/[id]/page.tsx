@@ -1,4 +1,4 @@
-import { GoBackButton } from '@/components/Buttons'
+import { GoBackButton } from '@/components/GoBackButton'
 import ProductCard from '@/components/ProductCard'
 import TProduct from '@/types/TProduct'
 

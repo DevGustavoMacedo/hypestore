@@ -1,4 +1,4 @@
-import { GoBackButton } from '@/components/Buttons'
+import { GoBackButton } from '@/components/GoBackButton'
 import ProductsGrid from '@/components/ProductsGrid'
 
 export async function generateStaticParams() {
@@ -6,6 +6,7 @@ export async function generateStaticParams() {
     .then((res) => res.json())
     .then((data) => {
       data.push('all')
+
       return data.map((item: string) => ({ href: item }))
     })
 
@@ -19,6 +20,8 @@ type Props = {
 }
 
 export default function Products({ params }: Props) {
+  const { href } = params
+
   return (
     <section className="bg-brand-white dark:bg-brand-black">
       <div className="flex items-center justify-around">
@@ -27,12 +30,12 @@ export default function Products({ params }: Props) {
           className="font-title text-brand-purple text-xl uppercase bg-brand-white dark:bg-brand-black py-5
         md:text-2xl lg:text-3xl lg:py-7"
         >
-          {params.href === 'all' ? 'all products' : params.href}
+          {href === 'all' ? 'all products' : href.replace('-', ' ')}
         </h2>
         <div></div>
       </div>
       {/* @ts-expect-error Async Server Component */}
-      <ProductsGrid href={params.href} />
+      <ProductsGrid href={href} />
     </section>
   )
 }
