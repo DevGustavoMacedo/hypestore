@@ -1,6 +1,12 @@
 import Link from 'next/link'
 
-export default function Menu({ isMenu, handleMenu }: { isMenu: boolean, handleMenu: () => void }) {
+export default function Menu({
+  isMenu,
+  handleMenu,
+}: {
+  isMenu: boolean
+  handleMenu: () => void
+}) {
   const categories = [
     { label: "Women's Clothing", href: '/products/womens-clothing' },
     { label: "Men's Clothing", href: '/products/mens-clothing' },

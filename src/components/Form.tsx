@@ -1,8 +1,15 @@
-import TFormProps from "@/types/TFormProps"
+import TFormProps from '@/types/TFormProps'
 
 export default function Form({ formProps }: TFormProps) {
-  const { createComplaint, addNewTech, delNewTech, register, handleSubmit, fields, formErrors } =
-    formProps
+  const {
+    createComplaint,
+    addNewTech,
+    delNewTech,
+    register,
+    handleSubmit,
+    fields,
+    formErrors,
+  } = formProps
 
   return (
     <form

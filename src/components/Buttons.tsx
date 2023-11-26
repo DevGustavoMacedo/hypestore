@@ -1,16 +1,16 @@
 import Image from 'next/image'
 
 type PropsMenuButton = {
-  isMenu: boolean,
+  isMenu: boolean
   handleMenu: () => void
 }
 
 type PropsThemeButton = {
-  theme: string,
+  theme: string
   setTheme: (theme: string) => void
 }
 
-export function ThemeButton({ theme, setTheme}: PropsThemeButton) {
+export function ThemeButton({ theme, setTheme }: PropsThemeButton) {
   const handleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
@@ -28,12 +28,11 @@ export function ThemeButton({ theme, setTheme}: PropsThemeButton) {
 }
 
 export function MenuButton({ isMenu, handleMenu }: PropsMenuButton) {
-
   return (
     <div
       onClick={handleMenu}
       className={`h-8 w-8 z-30 cursor-pointer rounded bg-brand-purple
-      md:h-10 md:w-10 lg:h-12 lg:w-12 ${isMenu && "toggle-btn"}`}
+      md:h-10 md:w-10 lg:h-12 lg:w-12 ${isMenu && 'toggle-btn'}`}
     >
       <button
         className="

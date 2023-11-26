@@ -9,18 +9,18 @@
   }
 
   ::-webkit-scrollbar {
-    @apply w-2 h-full
+    @apply w-2 h-full;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-brand-white
+    @apply bg-brand-white;
   }
 
   .dark ::-webkit-scrollbar-track {
-    @apply bg-brand-black
+    @apply bg-brand-black;
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    @apply bg-brand-purple
+    @apply bg-brand-purple;
   }
 }
